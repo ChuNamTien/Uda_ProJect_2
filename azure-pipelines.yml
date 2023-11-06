@@ -5,20 +5,16 @@
 
 trigger:
 - main
-# TODO: Replace the agent pool name
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '1465c635-13e4-4e4a-a04d-a944d5be0f60'
+  azureServiceConnectionId: '1fc2e0a4-81b3-4f46-adc1-91fb961f34d1'
 
   # Web app name
   webAppName: 'flaskappnamtien12'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
-
-    # Image name
-  poolName: 'myAgentPool'
 
   # Environment name
   environmentName: 'flaskappnamtien12'
@@ -34,8 +30,8 @@ stages:
   displayName: Build stage
   jobs:
   - job: BuildJob
-    pool: 
-      name: $(poolName)
+    pool:
+      vmImage: $(vmImageName)
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -50,7 +46,6 @@ stages:
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
-
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -70,8 +65,8 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: DeploymentJob
-    pool: 
-      name: $(poolName)
+    pool:
+      vmImage: $(vmImageName)
     environment: $(environmentName)
     strategy:
       runOnce:
