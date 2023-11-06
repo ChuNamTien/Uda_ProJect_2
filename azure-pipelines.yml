@@ -5,6 +5,8 @@
 
 trigger:
 - main
+# TODO: Replace the agent pool name
+pool: myAgentPool
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
@@ -30,8 +32,7 @@ stages:
   displayName: Build stage
   jobs:
   - job: BuildJob
-    pool:
-      vmImage: $(vmImageName)
+    pool: myAgentPool
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -66,8 +67,7 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: DeploymentJob
-    pool:
-      vmImage: $(vmImageName)
+    pool: myAgentPool
     environment: $(environmentName)
     strategy:
       runOnce:
