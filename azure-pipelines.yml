@@ -18,7 +18,7 @@ variables:
   vmImageName: 'ubuntu-latest'
 
     # Image name
-  poolName: 'Default'
+  poolName: 'myAgentPool'
 
   # Environment name
   environmentName: 'flaskappnamtien12'
