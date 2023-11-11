@@ -102,7 +102,10 @@ If you want create resource fast(VM, Network, Disk...) you can:
 * Create template then can create environment pipelines with ease
 
 So that each environment we have a set of resources and its own pipeline. Developer just merge the code to target branch, pipieline will auto run
-
+Locust load testing statics
+<p>
+<img src="./images/Screenshot 2023-11-11 162444.png" width="100%" />
+</p>
 ## Demo
 
 Youtube link [Video introduction project](https://youtu.be/z9pUjXiN9n8)
