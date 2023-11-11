@@ -74,7 +74,9 @@ Note: The app service was created before.
 The output should look similar to this:
 
 ```bash
-$ ./make_predict_azure_app.sh
+udacity@Azure:~$ ./make_predict_azure_app.sh
+Port: 443
+{"prediction":[20.35373177134412]}
 ```
 If show Permission denied please try this:
 ```bash
@@ -103,4 +105,4 @@ So that each environment we have a set of resources and its own pipeline. Develo
 
 ## Demo
 
-Youtube link [Video introduction project](https://youtu.be/Ts_js_sICM4)
+Youtube link [Video introduction project](https://youtu.be/z9pUjXiN9n8)
